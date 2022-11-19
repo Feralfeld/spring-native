@@ -10,9 +10,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.math.BigInteger;
 
+
 @SpringBootApplication
 @RestController
 public class SpringNativeApplication {
+//chmod 777 /var/run/docker.sock
 
 	Logger logger = LoggerFactory.getLogger(SpringNativeApplication.class);
 
