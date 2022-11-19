@@ -14,6 +14,6 @@ mvn clean -Pnative -DskipTests native:compile
 
 ````shell
 
-docker build -f Dockerfiles/Dockerfile -t feralfeld/jibber-benchmark:native.0.0.1-SNAPSHOT -m 6g .
+docker build -f Dockerfiles/Dockerfile -t feralfeld/jibber-benchmark:native.0.0.1-SNAPSHOT -m 5g .
 
 ````
