@@ -8,7 +8,7 @@ pipeline {
     servicePortName = "http"
     servicePort = "8080"
     deploymentName = "spring-native-deployment"
-    nodePort = "32100"
+    nodePort = "32101"
     dockerImage = ''
     IMAGE = readMavenPom().getArtifactId()
     VERSION = readMavenPom().getVersion()
@@ -38,7 +38,7 @@ pipeline {
 
         stage('Docker Build'){
             steps{
-            	sh "docker build -f Dockerfile -t feralfeld/spring-native:0.0.1 -m 6g ."
+            	sh "docker build -f Dockerfile -t feralfeld/${IMAGE}:${VERSION} -m 5g ."
 		        sh "docker login -u feralfeld -p ${variavel}"
              	sh "docker push feralfeld/${IMAGE}:${VERSION}"
            }
