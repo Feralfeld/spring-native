@@ -38,7 +38,7 @@ pipeline {
 
         stage('Docker Build'){
             steps{
-            	sh "docker build -f Dockerfile -t feralfeld/spring-native:0.0.1 -m 5g ."
+            	sh "docker build -f Dockerfile -t feralfeld/spring-native:0.0.1 -m 6g ."
 		        sh "docker login -u feralfeld -p ${variavel}"
              	sh "docker push feralfeld/${IMAGE}:${VERSION}"
            }
