@@ -30,7 +30,7 @@ WORKDIR /build
 COPY . /build
 
 # Build
-RUN mvn --no-transfer-progress clean -Pnative -DskipTests native:compile -Dram=4200
+RUN mvn --no-transfer-progress clean -Pnative -DskipTests native:compile -Dram=4400
 
 # The deployment Image
 FROM docker.io/oraclelinux:8-slim

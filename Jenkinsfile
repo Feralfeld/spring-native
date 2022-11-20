@@ -4,10 +4,10 @@ pipeline {
     clusterNamespace = "applications"
     registryCredential = 'feralfeld-dockerhub'
     appName = "spring-native"
-    deployServiceName = "spring-native-service"
+    deployServiceName = "spring-native"
     servicePortName = "http"
     servicePort = "8080"
-    deploymentName = "spring-native-deployment"
+    deploymentName = "spring-native"
     nodePort = "32101"
     dockerImage = ''
     IMAGE = readMavenPom().getArtifactId()
@@ -37,7 +37,7 @@ pipeline {
 
         stage('Docker Build'){
             steps{
-            	sh "docker build -f Dockerfile -t feralfeld/${IMAGE}:${VERSION} -m 5g ."
+            	sh "docker build -f Dockerfile -t feralfeld/${IMAGE}:${VERSION} ." //-m 5g
 		        sh "docker login -u feralfeld -p ${variavel}"
              	sh "docker push feralfeld/${IMAGE}:${VERSION}"
            }
