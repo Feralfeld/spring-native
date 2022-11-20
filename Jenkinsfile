@@ -37,7 +37,7 @@ pipeline {
 
         stage('Docker Build'){
             steps{
-            	sh "docker build -f Dockerfile -t feralfeld/${IMAGE}:${VERSION} -m 6g ."
+            	sh "docker build -f Dockerfile -t feralfeld/${IMAGE}:${VERSION} -m 5g ."
 		        sh "docker login -u feralfeld -p ${variavel}"
              	sh "docker push feralfeld/${IMAGE}:${VERSION}"
            }
