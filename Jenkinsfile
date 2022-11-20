@@ -20,28 +20,28 @@ pipeline {
 //chmod 777 /var/run/docker.sock
     stages {
 
-        stage('Mvn Build') {
-            steps {
-		    echo "${IMAGE} COM VERSÃO ${VERSION}"
-                echo 'Building'
-                sh 'mvn -Pnative native:compile -Dmaven.test.failure.ignore=true'
-            }
-        }
-        stage('Docker Build'){
-            steps{
-            	sh "docker build -f Dockerfile.native --build-arg APP_FILE=spring-native -t spring-native:native.0.0.2 ."
-		        sh "docker login -u feralfeld -p ${variavel}"
-             	sh "docker push feralfeld/${IMAGE}:${VERSION}"
-           }
-        }
-
+//         stage('Mvn Build') {
+//             steps {
+// 		    echo "${IMAGE} COM VERSÃO ${VERSION}"
+//                 echo 'Building'
+//                 sh 'mvn -Pnative native:compile -Dmaven.test.failure.ignore=true'
+//             }
+//         }
 //         stage('Docker Build'){
 //             steps{
-//             	sh "docker build -f Dockerfile -t feralfeld/${IMAGE}:${VERSION} -m 6g ."
+//             	sh "docker build -f Dockerfile.native --build-arg APP_FILE=spring-native -t spring-native:native.0.0.2 ."
 // 		        sh "docker login -u feralfeld -p ${variavel}"
 //              	sh "docker push feralfeld/${IMAGE}:${VERSION}"
 //            }
 //         }
+
+        stage('Docker Build'){
+            steps{
+            	sh "docker build -f Dockerfile -t feralfeld/${IMAGE}:${VERSION} -m 6g ."
+		        sh "docker login -u feralfeld -p ${variavel}"
+             	sh "docker push feralfeld/${IMAGE}:${VERSION}"
+           }
+        }
 
 	  stage ('Kubernetes Deploy') {
             steps {

@@ -30,13 +30,10 @@ public class SpringNativeApplication {
 
 	@RequestMapping(value = "/test", method = RequestMethod.POST)
 	public String test(Integer factor) {
-
 		if(factor == null || factor <= 0 ){
 			return "factor error";
 		}
-
 		double soma = 0;
-
 		for(int i =0 ; i <= factor; i++){
 			for(int j =0 ; j <= factor; j++){
 			soma++;
